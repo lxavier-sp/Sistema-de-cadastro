@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Colaboradores</title>
+
+    <!-- Google Fonts: Fraunces (display) + DM Sans (corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header class="header">
+      <div class="header__inner">
+        <!-- Logotipo / nome do sistema -->
+        <div class="header__brand">
+          <span class="header__brand-icon" aria-hidden="true">◈</span>
+          <span class="header__brand-name">Sistema de <em>Colaboradores</em></span>
+        </div>
+
+        <!-- Botão hambúrguer (mobile) -->
+        <button
+          class="header__hamburger"
+          id="hamburgerBtn"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mainNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Navegação principal -->
+        <nav class="header__nav" id="mainNav" aria-label="Navegação principal">
+          <ul class="nav__list" role="list">
+            <li>
+              <a href="#home" class="nav__link nav__link--active" data-section="home">Home</a>
+            </li>
+            <li>
+              <a href="#cadastro" class="nav__link" data-section="cadastro">Cadastro</a>
+            </li>
+            <li>
+              <a href="#lista" class="nav__link" data-section="lista">Lista</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main class="main" id="home">
+
+      <!-- --- Seção Hero --- -->
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero__content">
+          <p class="hero__label">Gestão de pessoas</p>
+          <h1 class="hero__title" id="heroTitle">
+            Gerencie sua<br /><em>equipe</em> com facilidade
+          </h1>
+          <p class="hero__subtitle">
+            Cadastre, consulte e organize colaboradores de forma simples e eficiente.
+          </p>
+        </div>
+        <!-- Decoração geométrica -->
+        <div class="hero__deco" aria-hidden="true">
+          <div class="deco__ring deco__ring--1"></div>
+          <div class="deco__ring deco__ring--2"></div>
+          <div class="deco__dot"></div>
+        </div>
+      </section>
+
+      <!-- --- Painel principal com formulário + tabela --- -->
+      <div class="panel-wrapper">
+
+        <!-- ---- Formulário de Cadastro ---- -->
+        <section class="panel panel--form" id="cadastro" aria-labelledby="formTitle">
+          <header class="panel__header">
+            <h2 class="panel__title" id="formTitle">Novo Colaborador</h2>
+            <p class="panel__subtitle">Preencha os dados abaixo para cadastrar.</p>
+          </header>
+
+          <!-- Toast de feedback (sucesso / erro) -->
+          <div
+            class="toast"
+            id="toast"
+            role="alert"
+            aria-live="polite"
+            aria-atomic="true"
+            hidden
+          ></div>
+
+          <form class="form" id="employeeForm" novalidate>
+            <!-- Nome Completo -->
+            <div class="form__group" id="group-name">
+              <label class="form__label" for="inputName">
+                Nome completo <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form__input"
+                type="text"
+                id="inputName"
+                name="name"
+                placeholder="Ex.: Ana Beatriz Santos"
+                autocomplete="name"
+                aria-describedby="error-name"
+                aria-required="true"
+              />
+              <span class="form__error" id="error-name" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form__group" id="group-email">
+              <label class="form__label" for="inputEmail">
+                E-mail <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form__input"
+                type="email"
+                id="inputEmail"
+                name="email"
+                placeholder="ana@empresa.com"
+                autocomplete="email"
+                aria-describedby="error-email"
+                aria-required="true"
+              />
+              <span class="form__error" id="error-email" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Cargo -->
+            <div class="form__group" id="group-role">
+              <label class="form__label" for="inputRole">
+                Cargo <span class="form__required" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form__input"
+                type="text"
+                id="inputRole"
+                name="role"
+                placeholder="Ex.: Desenvolvedora Front-end"
+                aria-describedby="error-role"
+                aria-required="true"
+              />
+              <span class="form__error" id="error-role" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Botão de salvar -->
+            <button class="btn btn--primary" type="submit" id="submitBtn">
+              <span class="btn__text">Salvar Colaborador</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- ---- Tabela de Colaboradores ---- -->
+        <section class="panel panel--table" id="lista" aria-labelledby="tableTitle">
+          <header class="panel__header">
+            <h2 class="panel__title" id="tableTitle">Colaboradores</h2>
+            <!-- Contador dinâmico atualizado pelo TS -->
+            <span class="badge" id="countBadge" aria-live="polite">0 registros</span>
+          </header>
+
+          <!-- Wrapper com scroll para responsividade -->
+          <div class="table-wrapper" role="region" aria-label="Lista de colaboradores" tabindex="0">
+            <table class="table" id="employeeTable" aria-describedby="tableTitle">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <!-- Corpo populado dinamicamente pelo script.ts -->
+              <tbody id="tableBody">
+                <!-- Estado vazio exibido quando não há colaboradores -->
+                <tr class="table__empty" id="emptyRow">
+                  <td colspan="5">
+                    <span class="table__empty-icon" aria-hidden="true">⊙</span>
+                    Nenhum colaborador cadastrado ainda.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div><!-- /panel-wrapper -->
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+      <p>
+        Sistema de Colaboradores &mdash; protótipo
+        <span aria-hidden="true"> · </span>
+        <span id="currentYear"></span>
+      </p>
+    </footer>
+
+    <!--
+      IMPORTANTE — TypeScript:
+      O arquivo script.ts deve ser compilado para script.js antes de usar no browser.
+      Execute no terminal:  tsc script.ts  (requer TypeScript instalado: npm i -g typescript)
+      O tsconfig mínimo sugerido está documentado no início de script.ts.
+    -->
+    <script src="script.js" defer></script>
+  </body>
+</html>
