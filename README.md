@@ -1,2 +1,2 @@
 # Sistema-de-cadastro
-Teste de sistema de cadastro apra GitHub Pages
+Teste de sistema de cadastro para GitHub Pages
