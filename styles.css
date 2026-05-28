@@ -21,18 +21,18 @@
    ===================================================================== */
 :root {
   /* Paleta: fundo creme quente + accent âmbar + texto quase-preto */
-  --clr-bg:          #F7F4EF;
-  --clr-surface:     #FFFFFF;
-  --clr-surface-alt: #F0EBE3;
+  --clr-bg:          #f1e8f7;
+  --clr-surface:     #ecd6ec;
+  --clr-surface-alt: #f2e3f5;
   --clr-border:      #DDD5C8;
 
-  --clr-accent:      #C4872B;       /* âmbar principal */
-  --clr-accent-dark: #9E6A1C;       /* hover do accent */
-  --clr-accent-lite: #F5E4C8;       /* tint suave */
+  --clr-accent:      #922bf1;       /* âmbar principal */
+  --clr-accent-dark: #a453eb;       /* hover do accent */
+  --clr-accent-lite: #E9DCF7;       /* tint suave */
 
   --clr-text:        #1A1714;       /* quase-preto quente */
   --clr-text-muted:  #7A6F63;
-  --clr-text-light:  #A89C8E;
+  --clr-text-light:  #2a232b;
 
   --clr-success:     #2E7D5B;
   --clr-success-bg:  #D8F0E6;
