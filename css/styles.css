@@ -21,18 +21,18 @@
    ===================================================================== */
 :root {
   /* Paleta: fundo creme quente + accent âmbar + texto quase-preto */
-  --clr-bg:          #f1e8f7;
-  --clr-surface:     #ecd6ec;
-  --clr-surface-alt: #f2e3f5;
-  --clr-border:      #DDD5C8;
+  --clr-bg:          #f1dada;
+  --clr-surface:     #eccaca;
+  --clr-surface-alt: #f5e3e3;
+  --clr-border:      #b6b1b1;
 
-  --clr-accent:      #922bf1;       /* âmbar principal */
-  --clr-accent-dark: #a453eb;       /* hover do accent */
-  --clr-accent-lite: #E9DCF7;       /* tint suave */
+  --clr-accent:      #f12b2b;       /* âmbar principal */
+  --clr-accent-dark: #eb5353;       /* hover do accent */
+  --clr-accent-lite: #f7dcdc;       /* tint suave */
 
-  --clr-text:        #1A1714;       /* quase-preto quente */
-  --clr-text-muted:  #7A6F63;
-  --clr-text-light:  #2a232b;
+  --clr-text:        #1a1414;       /* quase-preto quente */
+  --clr-text-muted:  #524141;
+  --clr-text-light:  #2b2323;
 
   --clr-success:     #2E7D5B;
   --clr-success-bg:  #D8F0E6;
@@ -135,7 +135,7 @@ ul, ol { list-style: none; }
   top: 0;
   z-index: 100;
   height: var(--header-h);
-  background: rgba(247, 244, 239, 0.88);
+  background: rgba(247, 239, 239, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--clr-border);
